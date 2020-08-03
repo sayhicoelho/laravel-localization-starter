@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Support\Lang;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+foreach (config('app.available_locales') as $locale => $data) {
+    Lang::setLocale($locale);
+
+    $prefix = $locale == config('app.fallback_locale') ? '' : $locale;
+
+    Route::prefix($prefix)->name("{$locale}.")->group(function () {
+        Route::get('/', 'WelcomeController@index')
+            ->name('welcome');
+
+        Route::prefix(Lang::getRoute('example'))->group(function () {
+            Route::get('{id}', 'WelcomeController@example')
+                ->name('example');
+        });
+    });
+}
