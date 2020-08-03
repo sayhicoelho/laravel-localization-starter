@@ -10,6 +10,10 @@ Was added URL path translate support and optional `/<locale>` route preffix.
 
 `http://website.com/pt/exemplo/123` also points to WelcomeController@example for Portuguese.
 
+# Caching
+
+Yes! You can still cache routes with `php artisan route:cache`.
+
 ## Acknowledgment
 
 Thanks to [PeterTheLobster](https://stackoverflow.com/users/3023333/peterthelobster) and [Mohammad](https://phrase.com/blog/posts/author/mohammad-ashour/)! They made some posts that made this boilerplate possible!
