@@ -14,6 +14,7 @@ define('LARAVEL_START', microtime(true));
 | Declare Helper Functions
 |--------------------------------------------------------------------------
 */
+
 require __DIR__.'/../bootstrap/helpers.php';
 
 /*
