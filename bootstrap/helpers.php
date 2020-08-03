@@ -15,6 +15,7 @@ if (! function_exists('route')) {
         $currentLocale = config('app.locale');
         $locale = $locale ?: $currentLocale;
 
+        // Remove the prefix from the route name.
         if (strpos($name, $currentLocale . '.') === 0) {
             $name = substr($name, 3);
         }
